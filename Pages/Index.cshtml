@@ -1,0 +1,48 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 >Number Conversion System</h1>
+    <hr/>
+</div>
+<div >
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <h3>From Base</h3>
+    <select name="Select_fromBase" class="form-control">
+        <option value="2">Binary</option>
+        <option value="8">Octal</option>
+        <option value="10">Decimal</option>
+        <option value="16">Hexadecimal</option>
+    </select>
+    <h3>To Base</h3>
+    <select name="Select_toBase" class="form-control">
+        <option value="2">Binary</option>
+        <option value="8">Octal</option>
+        <option value="10">Decimal</option>
+        <option value="16">Hexadecimal</option>
+    </select>
+    <div class="form-group">
+        <label asp-for="@Model.Input" class="control-label"></label>
+        <input asp-for="@Model.Input" class="form-control" />
+        <span asp-validation-for="Input" class="text-danger"></span>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Convert" />
+</form>
+<br />
+<br />
+@{
+    if (@Model.Output != null)
+    {
+        <h3>
+            Output is @Model.Output
+        </h3>
+    }
+}
+
+
+</div>
